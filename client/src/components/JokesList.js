@@ -1,16 +1,14 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useEffect, useState } from "react";
+import axiosWithAuth from "../axios/axiosWithAuth";
 import JokesCard from "./JokesCard";
 
-export default function JokesList(props) {
-  const [jokesData, setJokesData] = useState([]);
-
+const JokesList = () => {
+  const [jokes, setJokes] = useState([]);
   useEffect(() => {
-    axios
+    axiosWithAuth()
       .get("http://localhost:3300/api/jokes")
       .then(res => {
-        console.log(res.data);
-        setJokesData(res.data);
+        setJokes(res.data);
       })
       .catch(err => {
         console.log(err);
@@ -18,9 +16,15 @@ export default function JokesList(props) {
   }, []);
   return (
     <div>
-      {jokesData.map(joke => (
-        <JokesCard key={joke.id} joke={joke} />
+      <h1>Welcome to Dad Jokes!</h1>
+      <JokesCard onSubmit={jokes => setJokes(jokes)} />
+      {jokes.map(item => (
+        <>
+          <h3>{item.joke}</h3>
+        </>
       ))}
     </div>
   );
-}
+};
+
+export default JokesList;
