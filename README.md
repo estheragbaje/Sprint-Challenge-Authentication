@@ -42,11 +42,15 @@ Demonstrate your understanding of this week's concepts by answering the followin
 
 Sessions are a simple way to store data for individual users against a unique session ID. This can be used to persist state information between page requests. Session IDs are normally sent to the browser via session cookies and the ID is used to retrieve existing session data.
 
-The purpose for _sessions_ is to store data that you (as the web application developer) would like to have preserved across page loads. Thus, you can set flags in your login script such as logged_in to check if the user is logged in, and on any other page check _sessions_['logged_in'] === true, instead of querying for that information
+The purpose for *sessions* is to store data that you (as the web application developer) would like to have preserved across page loads. Thus, you can set flags in your login script such as logged_in to check if the user is logged in, and on any other page check sessions['logged_in'] === true, instead of querying for that information
 
 - [ ] What does bcrypt do to help us store passwords in a secure manner.
+      Bcrypt was designed for password hashing because it is a slow algorithm. This is good for password hashing as it reduces the number of passwords by second an attacker could hash when crafting a dictionary attack.
 
-- [ ] What does bcrypt do to slow down attackers?
+* [ ] What does bcrypt do to slow down attackers?
+
+Bcrypt slows down attackers because it requires a salt as part of the hashing process. Hashing combined with salts protect against rainbow table attacks.
+Besides incorporating a salt to protect against rainbow table attacks, bcrypt is an adaptive function: over time, theiteration count can be increased to make it slower, so it remains resistant to brute-force search attacks even with increasing computation power.
 
 - [ ] What are the three parts of the JSON Web Token?
 
