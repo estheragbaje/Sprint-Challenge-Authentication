@@ -29,7 +29,8 @@
     "jsonwebtoken": "^8.5.1",
     "knex": "^0.19.2",
     "sqlite3": "^4.1.0",
-    "supertest": "^4.0.2"
+    "supertest": "^4.0.2",
+    "uuid": "^3.3.3"
   },
   "devDependencies": {
     "eslint": "^6.6.0",
