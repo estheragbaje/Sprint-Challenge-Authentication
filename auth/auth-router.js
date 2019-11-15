@@ -2,11 +2,12 @@ const router = require("express").Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
+const Users = require("../users/user-model");
+
 router.post("/register", (req, res) => {
   // implement registration
   const { username, password } = req.body;
   const hash = bcrypt.hashSync(password, 10);
-  //   user.password = hash;
   const newUser = {
     username,
     password: hash
