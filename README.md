@@ -53,6 +53,15 @@ Bcrypt slows down attackers because it requires a salt as part of the hashing p
 Besides incorporating a salt to protect against rainbow table attacks, bcrypt is an adaptive function: over time, theiteration count can be increased to make it slower, so it remains resistant to brute-force search attacks even with increasing computation power.
 
 - [ ] What are the three parts of the JSON Web Token?
+      The 3 parts of a JSON Web Token are:
+
+      i. Header: The header typically consists of two parts: the type of the token, which is JWT, and the signing algorithm being used, such as HMAC SHA256 or RSA.
+      For example: `{ "alg": "HS256", "typ": "JWT" }`
+
+
+      ii. Payload: The second part of the token is the payload, which contains the claims. Claims are statements about an entity (typically, the user) and additional data.
+
+iii. Signature: The signature is used to verify the message wasn't changed along the way, and, in the case of tokens signed with a private key, it can also verify that the sender of the JWT is who it says it is.
 
 ## Minimum Viable Product
 
