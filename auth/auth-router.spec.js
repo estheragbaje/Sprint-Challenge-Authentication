@@ -29,19 +29,29 @@ describe("auth router", () => {
   });
 });
 
-// describe("testing authRouter", () => {
-//   describe("testing register endpoint", () => {
-//     test("user can be registered", async () => {
-//       await userModel.add({ username: "yue", password: "1234" });
-//       const user = await db("users");
-//       expect(user).toHaveLength(1);
-//     });
-//     test("returns 201 created status", async () => {
-//       const response = await request(server)
-//         .post("/api/auth/register")
-//         .send({ username: "yue", password: "1234" });
-//       expect(response.status).toBe(201);
-//     });
+describe("login router", () => {
+  describe("[POST] /login endpoint", () => {
+    test("the db env is testing", () => {
+      expect(process.env.DB_ENV).toBe("testing");
+    });
+
+    it("responds with json", function(done) {
+      request(server)
+        .post("/api/auth/login")
+        .send({ username: "john", password: "1234" })
+        .set("Accept", "application/json")
+        .expect("Content-Type", /json/)
+        .expect(200)
+        .end(function(err, res) {
+          if (err) return done(err);
+          done();
+        });
+    });
+  });
+});
+
+// describe("testing login", () => {
+
 //     describe("testing login endpoint", () => {
 //       test("user can login", async () => {
 //         const response = await request(server)
