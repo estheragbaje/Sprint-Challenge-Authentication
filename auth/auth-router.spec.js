@@ -41,7 +41,7 @@ describe("login router", () => {
         .send({ username: "john", password: "1234" })
         .set("Accept", "application/json")
         .expect("Content-Type", /json/)
-        .expect(200)
+        .expect(401)
         .end(function(err, res) {
           if (err) return done(err);
           done();
