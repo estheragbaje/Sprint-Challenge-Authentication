@@ -40,6 +40,10 @@ Demonstrate your understanding of this week's concepts by answering the followin
 
 - [ ] What is the purpose of using _sessions_?
 
+Sessions are a simple way to store data for individual users against a unique session ID. This can be used to persist state information between page requests. Session IDs are normally sent to the browser via session cookies and the ID is used to retrieve existing session data.
+
+The purpose for _sessions_ is to store data that you (as the web application developer) would like to have preserved across page loads. Thus, you can set flags in your login script such as logged_in to check if the user is logged in, and on any other page check _sessions_['logged_in'] === true, instead of querying for that information
+
 - [ ] What does bcrypt do to help us store passwords in a secure manner.
 
 - [ ] What does bcrypt do to slow down attackers?
